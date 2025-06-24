@@ -1,21 +1,14 @@
 provider aws {
-    region = var.region
+    region = "us-east-2"
 }
 
 resource "aws_instance" "web" {
-  ami           = var.ami_id
-  instance_type = var.instance_type
+  ami           = "ami-09e6f87a47903347c"
+  instance_type = "t2.micro"
 }
 
-variable region {}
-variable ami_id {}
-variable instance_type {}
+#variable region {}
+#variable ami_id {}
+#variable instance_type {}
 
-terraform {
-  backend "s3" {
-    bucket = "kaizen-aysele"
-    key    = "terraform.tfstate"
-    region = "us-east-1"
-    use_lockfile = true
-  }
-}
+
